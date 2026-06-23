@@ -117,6 +117,14 @@ export default function PostShow() {
           </div>
         </header>
 
+        {post.excerpt && (
+          <div className="my-10 border-l-4 border-primary pl-6 py-2">
+            <p className="text-xl md:text-2xl font-serif italic text-foreground/80 leading-relaxed">
+              {post.excerpt}
+            </p>
+          </div>
+        )}
+
         <div className="prose prose-lg prose-stone dark:prose-invert max-w-none font-serif leading-relaxed mb-16" dangerouslySetInnerHTML={{ __html: post.content }} />
         
         <section className="border-t border-border/50 pt-12">

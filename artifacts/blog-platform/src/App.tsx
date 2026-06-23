@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Layout } from "@/components/layout";
+import { ProtectedRoute } from "@/components/protected-route";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 import Posts from "@/pages/posts/index";
@@ -24,15 +25,25 @@ function Router() {
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/posts" component={Posts} />
-        <Route path="/posts/new" component={PostNew} />
-        <Route path="/posts/:id/edit" component={PostEdit} />
+        <Route path="/posts/new">
+          <ProtectedRoute><PostNew /></ProtectedRoute>
+        </Route>
+        <Route path="/posts/:id/edit">
+          <ProtectedRoute><PostEdit /></ProtectedRoute>
+        </Route>
         <Route path="/posts/:id" component={PostShow} />
         <Route path="/authors" component={Authors} />
-        <Route path="/authors/new" component={AuthorNew} />
-        <Route path="/authors/:id/edit" component={AuthorEdit} />
+        <Route path="/authors/new">
+          <ProtectedRoute><AuthorNew /></ProtectedRoute>
+        </Route>
+        <Route path="/authors/:id/edit">
+          <ProtectedRoute><AuthorEdit /></ProtectedRoute>
+        </Route>
         <Route path="/authors/:id" component={AuthorShow} />
         <Route path="/categories" component={Categories} />
-        <Route path="/categories/new" component={CategoryNew} />
+        <Route path="/categories/new">
+          <ProtectedRoute><CategoryNew /></ProtectedRoute>
+        </Route>
         <Route component={NotFound} />
       </Switch>
     </Layout>

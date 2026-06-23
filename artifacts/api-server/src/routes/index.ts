@@ -1,5 +1,6 @@
 import { Router, type IRouter } from "express";
 import healthRouter from "./health";
+import authRouter from "./auth";
 import postsRouter from "./posts";
 import authorsRouter from "./authors";
 import categoriesRouter from "./categories";
@@ -9,6 +10,7 @@ import deleteCommentRouter from "./delete-comment";
 const router: IRouter = Router();
 
 router.use(healthRouter);
+router.use(authRouter);
 router.use("/posts", postsRouter);
 router.use("/authors", authorsRouter);
 router.use("/categories", categoriesRouter);

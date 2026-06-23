@@ -117,7 +117,7 @@ export default function PostShow() {
           </div>
         </header>
 
-        <div className="prose prose-lg prose-stone dark:prose-invert max-w-none font-serif leading-relaxed mb-16" dangerouslySetContent={{ __html: post.content }} />
+        <div className="prose prose-lg prose-stone dark:prose-invert max-w-none font-serif leading-relaxed mb-16" dangerouslySetInnerHTML={{ __html: post.content }} />
         
         <section className="border-t border-border/50 pt-12">
           <h3 className="text-2xl font-serif font-bold mb-8">Responses ({post.commentCount || 0})</h3>

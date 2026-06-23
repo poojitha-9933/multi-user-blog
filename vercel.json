@@ -1,16 +1,9 @@
 {
   "version": 2,
-  "outputDirectory": "dist",
-  "builds": [
+  "rewrites": [
     {
-      "src": "dist/index.mjs",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "dist/index.mjs"
+      "source": "/(.*)",
+      "destination": "/api/index.js"
     }
   ]
 }
